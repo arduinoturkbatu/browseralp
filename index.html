@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self';"-->
+    <meta type="favicon" src="assets/logoFull.svg">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Browser Alp</title>
+  </head>
+  <body>
+    <noscript>WARNING! THE PROGRAM WILL NOT WORKING CORRECTLY!</noscript>
+    <div class="trafficlight"></div>
+    <img src="assets/logoMini.svg" class="browsericon">
+    <div class="titlebar">
+      Browser Alp
+    </div>
+    <div class="topSearch">
+      <div>
+        <button id="goback">
+          <svg
+    fill="none"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <use href="node_modules/feather-icons/dist/feather-sprite.svg#arrow-left"/>
+    
+  </svg><span>Back</span>
+        </button>
+        <button id="goforward">
+          <svg
+    fill="none"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <use href="node_modules/feather-icons/dist/feather-sprite.svg#arrow-right"/>
+  </svg>
+  <span>Forward</span>
+        </button>
+        <button id="refresh">
+          <svg
+          class="svg"
+    fill="none"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <use href="node_modules/feather-icons/dist/feather-sprite.svg#refresh-cw"/>
+    
+  </svg><span class="indicator"></span><span>Refresh</span>
+        </button>
+        <button id="gohome">
+          <svg
+    fill="none"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <use href="node_modules/feather-icons/dist/feather-sprite.svg#home"/>
+  </svg>
+  <span>Home</span>
+        </button>
+      </div>
+      <div>
+        <svg
+          fill="none"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="secure"
+        >
+          <use href="assets/LogoSmall.svg"/>
+        </svg>
+        <input type="search" placeholder="Search by URL only..." id="urlSearch">
+      </div>
+      <div>
+        <button id="sideview">
+          <svg
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#columns"/>
+          </svg>
+        </button>
+        <button id="codePlayground" onclick='popup("info","Not available","This action is in development.")'>
+          <svg
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#code"/>
+          </svg>
+        </button>
+      </div>
+  </div>
+
+  <div class="webwindow">
+    <div class="tabs">
+      <ul data-tabs>
+        <li role="presentation" oncontextmenu="contexted(0)">
+          <a href="#tab0" id="tabby-toggle_tab0" data-tabby-default role="tab" aria-controls="tab0" aria-selected="true" tab-index="-1" tabindex="0">
+            
+          </a>
+          <span onclick="killQuickly(0)">Close</span>
+        </li>
+      </ul>
+      <button class="add newTab" onclick="newTab('file:\/\/' + __dirname + '/alp/newTab/index.html')">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#plus"/>
+        </svg>
+      </button>
+
+      <button class="add options" onclick="options()">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#menu"/>
+        </svg>
+      </button>
+    </div>
+    <div class="webview">
+      <div class="options-menu">
+        <div class="option-box" style="top:unset;bottom: 90px !important;">
+          <button data-value="OPEN DEV TOOLS" onclick="activeTab.querySelector('webview').openDevTools()" class="special c">Open Dev Tools</button>
+          <button data-value="SETTINGS" onclick="document.querySelector('.settings').classList.toggle('show');options();" class="special d">Settings</button>
+        </div>
+      </div>
+      <div class="error">
+        <div class="error-box">
+          Something is wrong!
+        </div>
+      </div>
+        
+        <div class="tab" id="tab0" role="tabpanel" aria-labelledby="tabby-toggle_tab0">
+          <webview class="left" id="webview" src="alp/newTab/index.html" :allowpopups="allowpopups" webpreferences="allowRunningInsecureContent=yes" enableremotemodule="true" allowpopus></webview>
+        </div>
+    </div>
+  </div>
+
+  <div class="settings">
+    <div class="settings-box">
+      <div>Settings is in beta now. See <b>About</b> for more informations.</div>
+      <div class="close" onclick="document.querySelector('.settings').classList.toggle('show')">&times;</div>
+      <div class="sidebar">
+        <button class="active" onclick="sidenav(0)">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#home"/>
+          </svg>
+          General
+        </button>
+        <button onclick="sidenav(1)">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#lock"/>
+          </svg>
+          Security
+        </button>
+        <button onclick="sidenav(2)">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#aperture"/>
+          </svg>
+          Appearance
+        </button>
+        <button onclick="sidenav(3)">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#plus-circle"/>
+          </svg>
+          Advanced
+        </button>
+        <button onclick="sidenav(4)">
+          <svg
+            class="svg"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <use href="node_modules/feather-icons/dist/feather-sprite.svg#info"/>
+          </svg>
+          About
+        </button>
+      </div>
+      <div class="content">
+        <div class="active-content general view-content">
+          <h1>General Settings</h1>
+          <div class="section" onclick="this.querySelector('.desc').classList.toggle('show')">
+            <div class="title">Default Search Engine — <b class="dse">You</b></div>
+            <div class="desc">
+              <input type="radio" name="search" checked id="search" value="https://you.com/search?q=">You<br/>
+              <input type="radio" name="search" id="search" value="https://google.com/search?q=">Google<br/>
+              <input type="radio" name="search" id="search" value="https://bing.com/search?q=">Bing<br/>
+              <input type="radio" name="search" id="search" value="https://brave.com/search?q=">Brave<br/>
+              <input type="radio" name="search" id="search" value="https://yandex.com/search?q=">Yandex
+            </div>
+          </div>
+          <div class="section" onclick="this.querySelector('.desc').classList.toggle('show')">
+            <div class="title">Change Homepage — <b class="dse">Alp</b></div>
+            <div class="desc">
+              <input type="radio" name="home" checked id="home" value="alp://newTab">Alp<br/>
+              <input type="radio" name="home"  id="home" value="https://you.com/search?q=">You<br/>
+              <input type="radio" name="home" id="home" value="https://google.com/search?q=">Google<br/>
+              <input type="radio" name="home" id="home" value="https://bing.com/search?q=">Bing<br/>
+              <input type="radio" name="home" id="home" value="https://brave.com/search?q=">Brave<br/>
+              <input type="radio" name="home" id="home" value="https://yandex.com/search?q=">Yandex
+            </div>
+          </div>
+          <div class="section" onclick="this.querySelector('.desc').classList.toggle('show')">
+            <div class="title">Clear Browser Data</div>
+            <div class="desc">
+              <button>Clear Browser Data</button>
+            </div>
+          </div>
+          <div class="section" onclick="this.querySelector('.desc').classList.toggle('show')">
+            <div class="title">History — <b class="dse">undefined page(s)</b></div>
+            <div class="desc">
+              undefined
+            </div>
+          </div>
+        </div>
+
+        <div class="about view-content">
+          <h1>About Alp</h1>
+          <div style="display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          gap: 20px;">
+          <div style="display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          gap:20px;">
+            <img src="assets/logoMini.svg" alt="Browser Alp">
+            <div>
+              <b>Browser Alp</b><br/>
+              Version 0.1 (BETA)
+            </div>
+          </div>
+            <div>
+              <a class="button special">CHECK UPDATES</a>
+            </div>
+          </div>
+          <br/>
+          <div class="section">
+            <div class="title">Created with Electron 22.3.4</div>
+          </div>
+          <div class="section">
+            <div class="title">Web content powered by Chromium 108</div>
+          </div>
+          <div class="section">
+            <div class="title">Tab system by Tabby.JS</div>
+          </div>
+          <div class="section">
+            <div class="title">Icons are by FeatherIcons</div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="popup-alert">
+    <svg
+        class="svg"
+        fill="none"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <use href="node_modules/feather-icons/dist/feather-sprite.svg#info"/>
+    </svg>
+    <b>Title</b>
+    <span>Description</span>
+  </div>
+
+
+    <script src="tabby.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

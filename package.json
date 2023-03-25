@@ -1,0 +1,28 @@
+{
+  "name": "browser-alp",
+  "version": "0.1.0",
+  "description": "Browser Alp is all new browser created for everyone!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ."
+  },
+  "author": "Batu Group",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^22.3.4"
+  },
+  "dependencies": {
+    "electron-packager": "^17.1.1",
+    "feather-icons": "^4.29.0"
+  },
+  "build": {
+    "appId": "com.batugroup.browseralp",
+    "productName": "Browser Alp",
+    "target": "NSIS",
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  }
+}

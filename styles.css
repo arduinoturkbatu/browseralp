@@ -1,0 +1,898 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Space+Mono:wght@400;700&display=swap');
+
+*:not(webview) {
+    font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    transition: 0.2s all;
+}
+
+button, .button {
+    background: rgba(28,28,28,0.5);
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+    transition: 0.25s all;
+    cursor: pointer;
+    padding: 2px 4px;
+    display: inline-block;
+    text-align: center;
+}
+
+* {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+input {
+    accent-color: #98E2C6;
+}
+
+.special {
+    font-family: 'Space Mono' !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+}
+
+.special:hover {
+    letter-spacing: 5px !important;
+}
+
+body,html {
+    min-width: 480px !important;
+    min-height: 480px !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgb(255,255,255);
+    max-width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    background-color: #1e272e;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 0.5px;
+    background-color: #98E2C6;
+}
+
+img.browsericon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+
+.titlebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+    background-color: #1e272e;
+    color: #98E2C6;
+    -webkit-app-region: drag;
+}
+
+.trafficlight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #2f3542;
+    width: 160px;
+    height: 30px;
+    border-radius: 0 0 0 50px;
+}
+
+.topSearch {
+    width: 100%;
+    display: flex;
+    background: #1e272e;
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding-left: 20px;
+    padding-top: 7px;
+    padding-right: 20px;
+    padding-bottom: 7px;
+}
+
+.topSearch div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.topSearch div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.topSearch button {
+    background: rgba(28,28,28,0.5);
+    display: flex;
+    outline: none;
+    border: none;
+    color: #fff;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: 0.25s all;
+}
+
+.topSearch div:nth-child(2) {
+    width: calc(100% - 300px);
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topSearch button span:not(.indicator) {
+    display: none;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+}
+
+.topSearch button .indicator {
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    display: none;
+    opacity: 0;
+    border-bottom: 2px solid #98E2C6;
+    border-left: 2px solid #98E2C6;
+    border-top: 2px solid #98E2C6;
+    border-right: 2px solid transparent;
+    animation: rotate 1s infinite cubic-bezier(0.68, 0.1, 0.4, 1.07);
+}
+
+.topSearch .secure {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.topSearch .secure.on {
+    stroke: #00b894;
+}
+
+.topSearch .secure.off {
+    stroke: #dfe6e9;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.topSearch button:has(.indicator.load) .svg {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+.topSearch button .indicator.load {
+    display: inline;
+    opacity: 1;
+}
+
+.topSearch button:not(#gopage):hover {
+    height: 35px;
+    width: max-content;
+    background: rgba(36,36,36,0.5);
+    border-radius: 10px !important;
+    transition: 0.2s all;
+    text-align: center;
+}
+
+.topSearch button svg {
+    width: 24px;
+    height: 24px;
+    stroke: #98E2C6;
+    transition: 0.2s all;
+}
+
+.topSearch button:hover svg {
+    height: 30px;
+    width: 30px;
+    stroke: #8bcdb4;
+    transition: 0.2s all;
+    transform: rotateZ(-5deg);
+}
+
+.topSearch button:hover span:not(.indicator) {
+    width: auto;
+    margin-left: 10px;
+    display: inline;
+    opacity: 1;
+}
+
+.topSearch input[type="search"] {
+    box-sizing: border-box;
+    border-radius: 50px;
+    background: rgba(28,28,28,0.5);
+    color: #fff;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding-left: 50px !important;
+    padding-right: 7px !important;
+    height: 35px;
+    transition: 0.2s all;
+}
+
+.topSearch .icon {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.topSearch div:nth-child(2):has(input:focus-visible) #gopage {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity:1;
+    margin-right: 20px;
+    z-index: 9 !important;
+}
+
+.topSearch input:hover, .topSearch input:focus-visible {
+    border-radius: 10px;
+    background: rgba(36,36,36,0.5);
+    transition: 0.2s all;
+}
+
+.topSearch input:focus-visible, .topSearch input:focus {
+width: 100% !important;
+}
+
+.webview div:not(.draggable,.logo-section) {
+    position: absolute;
+    top: 75px;
+    left: 38px;
+    overflow: hidden;
+    z-index: 0;
+    border-radius: 10px 0 0 0;
+}
+
+
+.webwindow {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: rgb(17,17,17);
+}
+
+.webwindow .tabs {
+    background: #1e272e;
+    width: 40px !important;
+    height: 100% !important;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.webwindow .tabs ul {
+    list-style: none !important;
+    list-style-position: inside !important;
+    list-style-type: none !important;
+    margin: 0;
+    min-height: 35px !important;
+    max-height: calc(100% - 180px) !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.webwindow .tabs li {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 20%;
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content:center;
+    list-style: none !important;
+    list-style-position: inside !important;
+    list-style-type: none !important;
+    overflow: hidden;
+    transition: 0.2s all;
+    margin-bottom: 15px !important;
+    margin-left: -37px;
+}
+
+.webwindow .tabs li a {
+    display: inline-block;
+    position: relative;
+    font-size: 18px !important;
+    text-decoration: none !important;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 75% 75%;
+    border-radius: 2px;
+    transition: 0.2s all;
+}
+
+.webwindow .tabs li:has(a[aria-selected="true"]) {
+    width: 37px;
+    height: 37px;
+    background: rgba(0,0,0,0.7);
+    transition: 0.2s all;
+    margin-left: -38.5px;
+}
+
+.webwindow .tabs li:hover {
+    height: 37px;
+    width: 37px;
+    background: rgba(0,0,0,0.5);
+    transition: 0.2s all;
+    margin-left: -38.5px;
+    transform: rotateZ(5deg);
+    transition: 0.2s all;
+}
+
+.webwindow .tabs li span {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #fff;
+}
+
+.webwindow .tabs li:hover span {
+    cursor: pointer;
+}
+
+.webwindow .tabs li span:hover {
+    letter-spacing: 3px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: rgb(236, 16, 16);
+}
+
+.webwindow .tabs li:hover a {
+    transform: rotateZ(-10deg);
+    transition: 0.2s all;
+    height: 37px;
+    width: 37px;
+    filter: blur(4px);
+}
+
+.webwindow .tabs button.add {
+    position: absolute;
+    outline: none;
+    border: none;
+    background: none;
+    left: 35%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+}
+
+.webwindow .tabs button.add.newTab {
+    bottom: 130px;
+}
+
+.webwindow .tabs button.add.options {
+    bottom: 90px;
+}
+
+.webwindow .tabs button.add svg {
+    width: 30px;
+    height: 30px;
+    stroke: #ffffff;
+    transition: 0.2s all;
+}
+
+.webwindow .tabs button.add:hover svg {
+    stroke: #98E2C6;
+    transform: rotateZ(12deg);
+    transition: 0.2s all;
+}
+
+.webwindow .error {
+    width: 0;
+    height: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    display: none;
+    z-index: -999;
+    opacity: 0;
+    transition: 1s all cubic-bezier(0.79, 0.07, 0.24, 1.43);
+}
+
+.webwindow .error.show {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(24px);
+    display: block;
+    opacity: 1;
+    z-index: 9999999;
+    transition: 1s all cubic-bezier(0.79, 0.07, 0.24, 1.43);
+}
+
+.webwindow .error .error-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 25px !important;
+    background: rgba(5, 5, 5, 0.774);
+    color: #fff;
+}
+
+.webwindow .error .error-box p:not(.b) {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.webwindow .error .error-box .buttons {
+    padding-top: 70px;
+    width: 100%;
+    gap: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    left: 0;
+}
+
+.webwindow .error .error-box p.b {
+    font-size: 19px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align:center;
+    padding-top: 3px;
+    font-weight: bold;
+}
+
+.webwindow .error .error-box .buttons button.no {
+    border: 1px solid #ddd;
+    color: #ddd;
+    outline: none;
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    background: none;
+    transition: 0.2s all;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.webwindow .error .error-box .buttons button.no:hover {
+    background: #444444;
+    transition: 0.2s all;
+    border-width: 2px;
+}
+
+.webwindow .error .error-box .buttons button.yes {
+    background: #ff3838;
+    border: 1px solid #ff3838;
+    color: #fff;
+    outline: none;
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    margin-right: 10px;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+
+.webwindow .error .error-box .buttons button.yes:hover {
+    background: #ff4d4d;
+    transition: 0.2s all;
+    border-width: 2px;
+}
+
+.settings {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: calc(100vh - 32.5px);
+    position: absolute;
+    bottom: 0;
+    right: -1000vh;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(24px);
+    transition: 0.7s all;
+}
+
+.settings.show {
+    width: 100%;
+    height: calc(100vh - 32.5px);
+    backdrop-filter: blur(12px);
+    bottom: 0;
+    right: 0;
+    z-index: 9999999;
+    transition: 0.7s all;
+}
+
+.settings .settings-box {
+    position: absolute;
+    width: calc(50%);
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(5, 5, 5, 0.774);
+    color: #fff;
+    display: flex;
+    justify-items: start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.settings .settings-box .sidebar {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    background: rgba(0,0,0,0.2);
+    border-radius: 25px 0 0 25px;
+    overflow: auto;
+    display: flex;
+    gap: 5px;
+}
+
+.settings .settings-box .content {
+    padding-left: 15px;
+    width: calc(100% - 15px);
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+    overflow: auto;
+    position: relative;
+}
+
+.settings .settings-box .sidebar button {
+    margin: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 8px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1rem;
+    width: max-content;
+    transition: 0.2s all;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+}
+
+.settings .settings-box .sidebar button.active {
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+    letter-spacing: 5px !important;
+    transition: 0.2s all;
+}
+
+.settings .settings-box .sidebar button svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: #fff;
+    stroke-width: 2.5px;
+    transition: 0.2s all;
+}
+
+.settings .settings-box .sidebar button.active svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: #fff;
+    stroke-width: 2.5px;
+    transition: 0.2s all;
+}
+
+.settings .settings-box .content .section{
+    position: relative;
+    background-color: rgba(0,0,0,0.7);
+    padding: 12px;
+    margin-bottom: 5.5px;
+    padding-right: 36px;
+    overflow: auto;
+    border-radius: 50px;
+}
+
+.settings .settings-box .content .section::after {
+    position: absolute;
+    content: '>';
+    right: 20px;
+    top: 10px;
+}
+
+.settings .settings-box .content .section:has(.desc.show) {
+    background-color: rgba(0,0,0,0.45);
+    border-radius: 25px;
+}
+
+.settings .settings-box .content .section:has(.desc.show)::after {
+    position: absolute;
+    content: '>';
+    right: 20px;
+    top: 10px;
+    transform: rotateZ(90deg);
+}
+
+.settings .settings-box .content .section .desc {
+    display: none;
+    opacity: 0;
+}
+
+.settings .settings-box .content .section .desc.show {
+    display: block;
+    opacity: 1;
+}
+
+.settings .close, .settings .close:focus {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.settings .close:hover {
+    border-radius: 25%;
+    background-color: rgba(0,0,0,0.7);
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.options-menu {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(24px);
+    position: absolute;
+    z-index: 99999999999 !important;
+    background-color: rgba(0,0,0,0.7);
+    transition: 0.2s all;
+    display: none;
+    opacity: 0;
+}
+
+.options-menu.show {
+    transition: 0.2s all;
+    display: block;
+    opacity: 1;
+}
+
+.options-menu.show .option-box {
+    left: 10px !important;
+    transition: 0.2s all;
+}
+
+.option-box {
+    width: 200px;
+    height: unset !important;
+    position: absolute;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    left: -100px !important;
+    border-radius: 12px !important;
+    background: rgba(5, 5, 5, 0.774);
+    color: #fff;
+    transition: 0.2s all;
+}
+
+.option-box button {
+    width: 100% !important;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding-top: 5px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    transition: 0.2s all;
+}
+
+.option-box button:hover {
+    background-color: rgb(17, 17, 17);
+    transition: 0.2s all;
+}
+
+.tab {
+    overflow: hidden;
+    height: calc(100vh - 75px) !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(17,17,17);
+}
+
+.tab webview {
+    z-index: 2;
+    position: relative;
+    background: #fff;
+    flex-grow: 1;
+    margin: 0;
+    height: 100% !important;
+    box-sizing: border-box;
+    transition: 0.1s all;
+}
+
+.tab webview::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.tab .draggable {
+    height: 50px;
+    margin: 5px;
+    border-radius: 20px;
+    width: 10px;
+    cursor: ew-resize;
+    background-color: rgb(25,25,25);
+    z-index: 1;
+}
+
+[hidden="hidden"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.popup-alert {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: rgba(1, 1, 1, 0.7);
+    backdrop-filter: blur(24px);
+    color: #fff;
+    font-size: 16px;
+    animation: unpopuped 0.7s cubic-bezier(0.52, 0.02, 0.49, 1.46);
+}
+
+.popup-alert.show {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    animation: popuped 0.7s cubic-bezier(0.52, 0.02, 0.49, 1.46);
+}
+
+.popup-alert svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ffffff;
+}
+
+@keyframes popuped {
+    0% {
+        bottom: -32px;
+        right: 10px;
+    }
+
+    100% {
+        bottom: 12px;
+        right: 10px;
+    }
+}
+
+@keyframes unpopuped {
+    100% {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        bottom: -32px;
+        right: 10px;
+    }
+
+    0% {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        bottom: 12px;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .topSearch {display:block;padding-left: 0;padding-right:0;}
+    .topSearch input {width: 100% !important;}
+    .topSearch div:first-child {width:100%;}
+    .topSearch div:nth-child(2) {display:block;width:100%;}
+    .topSearch div:nth-child(3) {position: absolute;right: 5px;top:70px;}
+    .webview div:not(.draggable) {top: 107px;}
+    .options {bottom:125px !important;}
+    .newTab {bottom:160px !important;}
+}
+
+kbd {
+    background-color: rgb(25,25,25);
+    border-radius: 3px;
+    border: 1px solid rgb(50,50,50);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(10, 10, 10, 0.7) inset;
+    color: #eee;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+.view-content {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.active-content {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
