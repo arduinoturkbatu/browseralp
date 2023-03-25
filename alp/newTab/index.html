@@ -1,0 +1,71 @@
+<!--? This page's styles are powered by TailwindCSS. The font is from Google Fonts. Maded for Browser Alp (/.|)-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="dist/output.css" rel="stylesheet">
+        <link rel="shortcut icon" href="src/icon.svg" type="image/x-icon">
+        <title>New Tab</title>
+    </head>
+    <body class="relative w-full h-screen overflow-hidden">
+        <img src="https://picsum.photos/1920/1080" class="absolute object-cover animate-[load_0.5s_ease-in-out] scale-100 bg-cover w-full h-screen -z-10" alt="background image">
+        <div class="absolute z-10 p-4 px-6 text-left text-black bottom-7 dark:text-white left-7 bg-slate-300/20 dark:bg-slate-900/20 backdrop-blur-xl rounded-2xl">
+            <span class="font-regular">Photo by:</span>
+            <a class="font-bold hover:text-cyan-600 dark:hover:text-cyan-400 text-cyan-500 dark:text-cyan-300" href="https://picsum.photos/">
+                Lorem Picsum
+            </a><br/>
+            <span class="font-regular">Page maded with:</span>
+            <a class="font-bold hover:text-cyan-600 dark:hover:text-cyan-400 text-cyan-500 dark:text-cyan-300" href="https://tailwindcss.com">
+                TailwindCSS 3
+            </a><br/>
+            <span class="font-regular">Icons by:</span>
+            <a class="font-bold hover:text-cyan-600 dark:hover:text-cyan-400 text-cyan-500 dark:text-cyan-300" href="https://heroicons.com">
+                Heroicons 2
+            </a>
+        </div>
+
+        <!--?Time { -->
+            <div class="absolute w-full font-bold text-center text-white h-max text-8xl top-1/4">
+                <span id="timeHour"></span>
+                <span>:</span>
+                <span id="timeMinute"></span><br/>
+                <span id="timeDate" class="absolute z-50 text-xl font-medium text-white -translate-x-1/2 left-1/2" style="top: calc(25% + 64px)"></span>
+            </div>
+        <!--?Time } -->
+
+        <!--?SearchBar { -->
+            <div class="absolute text-black -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 dark:text-white bg-slate-300/20 dark:bg-slate-900/20 backdrop-blur-xl rounded-2xl w-max">
+                <input type="search" id="search" name="search" placeholder="Search a query and hit enter..." class="px-8 py-4 bg-transparent border-none outline-none ring-cyan-500/50 dark:ring-cyan-300/50 focus:ring-2 ring-offset-transparent ring-offset-2 rounded-2xl w-96">
+                <select name="service" id="service" class="fixed right-0 order-2 w-5 mr-5 text-black -translate-y-1/2 bg-transparent outline-none opacity-0 top-1/2">
+                    <option value="you" selected>You</option>
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="brave">Brave Search</option>
+                    <option value="yandex">Yandex</option>
+                </select>
+                <label for="service" class="fixed right-0 !z-30 mr-5 -translate-y-1/2 pointer-events-none bg-transparent top-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8 fill-cyan-500 dark:fill-cyan-300">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>                    
+                </label>
+            </div>
+        <!--?SearchBar } -->
+    </body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        @keyframes load {
+            0% {
+                transform: scale(1.25,1.25);
+            }
+            100% {
+                transform: scale(1,1);
+            }
+        }
+    </style>
+    <script src="src/spagetti.js"></script>
+    <script src="src/timer.js"></script>
+    <script src="src/searcher.js"></script>
+</html>
