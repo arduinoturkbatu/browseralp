@@ -1,8 +1,12 @@
 # ![](https://arduinoturkbatu.github.io/browseralp-website/assets/logoFull.png) Browser Alp
+
+<a href="https://www.producthunt.com/posts/browser-alp?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-browser&#0045;alp" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=385815&theme=neutral" alt="Browser&#0032;Alp - A&#0032;real&#0032;developer&#0032;browser | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 **Bring a new browser experience**<br/>
 Meet the first real developer browser. Faster, easy and use developer tools at a glance.
 
-<video src="https://github.com/arduinoturkbatu/browseralp-website/raw/main/assets/trailer.mp4" autoplay controls></video>
+[Watch Trailer](https://github.com/arduinoturkbatu/browseralp-website/raw/main/assets/trailer.mp4) | 
+[Visit Product Page](https://arduinoturkbatu.github.io/browseralp-website)
 
 ----
 
