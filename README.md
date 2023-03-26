@@ -2,6 +2,8 @@
 **Bring a new browser experience**<br/>
 Meet the first real developer browser. Faster, easy and use developer tools at a glance.
 
+<video src="https://github.com/arduinoturkbatu/browseralp-website/raw/main/assets/trailer.mp4" autoplay controls></video>
+
 ----
 
 ## How To Use
